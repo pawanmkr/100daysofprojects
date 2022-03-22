@@ -38,3 +38,82 @@ const questions = [
     answer: "1. break",
   },
 ];
+
+let score = 0;
+let seconds = 50;
+
+const time = document.querySelector(".time-left");
+const startCard = document.querySelector(".starter-card");
+const questionCard = document.querySelector(".question-card");
+const qLabel = document.querySelector(".questionLabel");
+const options = Array.from(document.querySelectorAll(".options"));
+const alert = document.querySelector(".alert");
+const finalScore = document.querySelector(".final-score");
+const scoreField = document.querySelector(".score");
+
+function endQuiz() {
+  questionCard.classList.add('qsvisible');
+  finalScore.classList.remove('fcvisible');
+  scoreField.innerText = score;
+}
+
+function loadQuestion(number) {
+
+  console.log("in the loadquestion initial is " +  initial);
+
+  if(number < 5 && seconds > 0) {
+    startCard.classList.add("scvisible");
+    questionCard.classList.remove("qsvisible");
+
+    qLabel.innerText = questions[number].questionText;
+    let optionNumber = 0;
+
+    options.forEach((option)=> {
+      option.innerText = questions[number].options[optionNumber];
+      optionNumber++;
+    });
+  }
+  else {
+    endQuiz();
+  }
+
+}
+
+let initial = 0;
+const startButton = document.querySelector(".start-btn");
+
+startButton.addEventListener('click', () => {
+  loadQuestion(0);
+
+  const decrease = setInterval(() => {
+    if(seconds > 0) {
+      seconds -= 1;
+      time.innerText = "Time: " + seconds + "s";
+    }
+    else {
+      clearInterval(decrease);
+      endQuiz();
+    }
+  }, 1000)
+
+
+  options.forEach((option)=> {
+    option.addEventListener('click', () => {
+
+      if(option.innerText === questions[initial].answer) {
+        alert.innerText = "Correct!";
+        score += 1;
+      }
+      else {
+        alert.innerText = "Incorrect!";
+        seconds -= 10;
+      }
+      
+      initial++;
+      loadQuestion(initial);
+      
+    })
+  });
+
+});
+
