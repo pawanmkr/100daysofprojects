@@ -26,6 +26,12 @@ main {
     border: 1px solid rgb(197, 197, 197);
     box-shadow: 8px 5px 10px rgb(197, 197, 197);
 }
+.scvisible{
+    display: none;
+}
+.qsvisible{
+    display: none;
+}
 
 button {
     background-color: #218380;
@@ -34,4 +40,66 @@ button {
     padding: 1em;
     color: white;
     border-radius: .5em;
+}
+.starter-card p{
+    line-height: 16px;
+}
+
+/* for quesion card*/
+
+.question-card{
+    margin-top: 1%;
+    width: 70%;
+    border-radius: 1em;
+    padding: 1em 1em;
+    border: 1px solid rgb(197, 197, 197);
+    box-shadow: 8px 5px 10px rgb(197, 197, 197);
+}
+.option-form button{
+    background-color:#218380 ;
+    color: white;
+    width: 90%;
+    margin-top: 20px;
+    height: 30px;
+    border-radius: 5px;
+    font-size:20px;
+    list-style: none;
+    padding: 10px;
+    height: 50px;
+    text-align: left;
+}
+.option-form button:hover{
+    opacity: 60%;
+}
+h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:30px;
+}
+.alert{
+    font-size: 20px;
+}
+hr{
+    border: 1px solid gray;
+    margin-top:20px;
+   
+}
+
+.final-score {
+    margin-top: 15%;
+    border-radius: 1em;
+    padding: 2em 2em;
+    border: 1px solid rgb(197, 197, 197);
+    box-shadow: 8px 5px 10px rgb(197, 197, 197);
+}
+
+.fcvisible {
+    display: none;
+}
+
+.input {
+    display: flex;
+}
+
+input {
+    margin: 0 1em;
 }

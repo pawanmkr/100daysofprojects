@@ -15,20 +15,45 @@
         <a id=leaderboard>View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
         </i></a> 
         <p class="time-left">
-            Time: 45s
+            Time: 50s
         </p>
 
     </header>
     <main>
-        <div class="starter-card">
+       <div class="starter-card">
             <h1 class="sc-heading" >Coding Challenge Quiz</h1>
             <p>
                 Try to answer to the following coding realted questions within the time limit. <br>Keep in mind the incorrect answer will penalize you score/time by ten seconds!
             </p>
-            <button type="submit">Start Quiz</button>
+            <button type="submit" class="start-btn">Start Quiz</button>
         </div>
+
+        <div class="question-card qsvisible">
+            <h3 class="questionLabel">what is the correct option</h3>
+            <form action="" class="option-form">
+                <button class="options" type="button">one</button>
+                <button class="options" type="button"">two</button>
+                <button class="options" type="button"">three</button>
+                <button class="options" type="button">four</button>
+            </form>
+            <hr>
+            <h6 class="alert"></h6>
+        </div>
+
+        <div class="final-score fcvisible">
+            <h1 class="fc-heading" >All Done</h1>
+            <p>
+                Your final score is: <span class="score">0</span>
+            </p>
+            <div class="input">
+                <p>Enter Initials: </p>
+                <input type="text">
+                <button type="submit" type="button" class="submit-btn">Submit</button>
+            </div>
+        </div>
+
     </main>
-    <script src="assets/script.js"></script>
+    <script src="./assets/script.js" type="module"></script>
 </body>
 
 </html>
