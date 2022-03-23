@@ -13,6 +13,10 @@ header {
     padding: 0 1em;
 }
 
+#leaderboard {
+    cursor: pointer;
+}
+
 main {
     display: flex;
     align-items: center;
@@ -30,6 +34,10 @@ main {
     display: none;
 }
 .qsvisible{
+    display: none;
+}
+
+.hsvisible {
     display: none;
 }
 
@@ -102,4 +110,13 @@ hr{
 
 input {
     margin: 0 1em;
+}
+
+/* for highscore card*/
+.high-score{
+    margin-top: 15%;
+    border-radius: 1em;
+    padding: 2em 2em;
+    border: 1px solid rgb(197, 197, 197);
+    box-shadow: 8px 5px 10px rgb(197, 197, 197);
 }

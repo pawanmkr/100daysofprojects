@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <a id=leaderboard>View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
+        <a id="leaderboard">View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
         </i></a> 
         <p class="time-left">
             Time: 50s
@@ -46,10 +46,21 @@
                 Your final score is: <span class="score">0</span>
             </p>
             <div class="input">
-                <p>Enter Initials: </p>
-                <input type="text">
+                <p>Enter Name: </p>
+                <input type="text" id="name" placeholder="Enter Name">
                 <button type="submit" type="button" class="submit-btn">Submit</button>
             </div>
+        </div>
+
+        <div class="high-score hsvisible">
+            <h1 class="hs-heading" >Highscores</h1>
+            <ol class="content">
+                
+            </ol>
+            <span>
+                <button class="back-btn">Go Back</button>
+                <button class="clear-score">Clear Highscores</button>
+            </span>
         </div>
 
     </main>

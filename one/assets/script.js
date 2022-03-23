@@ -41,6 +41,8 @@ const questions = [
 
 let score = 0;
 let seconds = 50;
+let yourName = "";
+let decrease;
 
 const time = document.querySelector(".time-left");
 const startCard = document.querySelector(".starter-card");
@@ -49,12 +51,21 @@ const qLabel = document.querySelector(".questionLabel");
 const options = Array.from(document.querySelectorAll(".options"));
 const alert = document.querySelector(".alert");
 const finalScore = document.querySelector(".final-score");
+const highScore = document.querySelector(".high-score");
+const clearScore = document.querySelector(".clear-score");
 const scoreField = document.querySelector(".score");
+const leaderBoard = document.getElementById("leaderboard");
+const submitButton = document.querySelector(".submit-btn");
+const domname = document.getElementById("name");
+const content = document.querySelector(".content");
+const back = document.querySelector(".back-btn");
 
 function endQuiz() {
   questionCard.classList.add('qsvisible');
   finalScore.classList.remove('fcvisible');
+  highScore.classList.add("hsvisible");
   scoreField.innerText = score;
+  clearInterval(decrease);
 }
 
 function loadQuestion(number) {
@@ -85,7 +96,7 @@ const startButton = document.querySelector(".start-btn");
 startButton.addEventListener('click', () => {
   loadQuestion(0);
 
-  const decrease = setInterval(() => {
+  decrease = setInterval(() => {
     if(seconds > 0) {
       seconds -= 1;
       time.innerText = "Time: " + seconds + "s";
@@ -116,4 +127,40 @@ startButton.addEventListener('click', () => {
   });
 
 });
+
+function showHighScore () {
+  startCard.classList.add("scvisible");
+  questionCard.classList.add('qsvisible');
+  finalScore.classList.add("fcvisible");
+  highScore.classList.remove("hsvisible");
+
+  for (let i = 2; i <= localStorage.length; i++) {
+    const scoreBoard = document.createElement("li");
+    content.appendChild(scoreBoard);
+
+    scoreBoard.innerText = localStorage[i];
+  }
+}
+
+leaderBoard.addEventListener('click', ()=>{
+  showHighScore();
+});
+
+let id = localStorage.length;
+submitButton.addEventListener('click', ()=>{ 
+  id++;
+  localStorage.setItem(id, (domname.value + " : " + score));
+  showHighScore();
+});
+
+clearScore.addEventListener('click', ()=>{
+  localStorage.clear();
+  content.innerHTML = "";
+})
+
+back.addEventListener('click', ()=>{
+  location.reload();
+})
+
+
 
